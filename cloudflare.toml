@@ -1,0 +1,17 @@
+# Cloudflare Workers config for Her Namibia (TanStack Start + Nitro).
+# Wrangler also reads wrangler.toml; keep both files in sync.
+
+name = "her-namibia"
+main = ".output/server/index.mjs"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".output/public"
+binding = "ASSETS"
+
+[observability]
+enabled = true
+
+[vars]
+SITE_URL = "https://www.hernamibia.com"

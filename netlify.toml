@@ -1,0 +1,16 @@
+# Netlify configuration for the CRG Research & Consulting application (TanStack Start + Nitro SSR).
+# Nitro is zero-config on Netlify: it emits static assets to `dist` (publish dir) and the SSR
+# serverless function to `.netlify/functions-internal`, which Netlify wires up automatically.
+
+[build]
+  command = "NITRO_PRESET=netlify npm run build"
+  publish = "dist"
+
+# Security headers for the site
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
